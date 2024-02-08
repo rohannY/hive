@@ -1,11 +1,10 @@
-import { Button } from "../ui/button";
-
+import ReplyDialog from "./reply-dialog";
 
 export default function Reply() {
   return (
     <div className="border py-6 px-8 space-y-3">
       <div>
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-slate-400">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
           esse soluta, architecto repudiandae repellendus minima voluptatibus
           sint odio recusandae ad blanditiis nesciunt ab impedit molestiae
@@ -20,7 +19,7 @@ export default function Reply() {
         <div className="space-x-4 flex flex-row items-center text-sm">
           <span>12hr ago</span>
           <span>#323213</span>
-          <Button className="bg-transparent border text-white">Reply</Button>
+          <ReplyDialog />
         </div>
       </div>
     </div>

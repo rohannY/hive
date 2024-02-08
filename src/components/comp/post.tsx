@@ -9,6 +9,8 @@ import { Separator } from "@/components/ui/separator";
 import Arrow from "@/assets/icons/arrow";
 import { Button } from "../ui/button";
 import Reply from "./reply";
+import { Dialog, DialogTrigger } from "@radix-ui/react-dialog";
+import ReplyDialog from "./reply-dialog";
 
 export default function Post() {
   return (
@@ -16,7 +18,7 @@ export default function Post() {
       <div className="p-2 w-full max-h-screen">
         <div className="grid grid-cols-5">
           <div className="col-span-1 order-last lg:-order-1 mx-8 lg:mx-2 ">
-            <div className="p-6 my-4 lg:my-20 bg-white border border-slate-100 rounded-md shadow-md shadow-gray-100 dark:shadow-none dark:bg-[#020817] dark:border-gray-800">
+            <div className="p-6 my-4 lg:my-20 bg-white border border-slate-100 rounded-2xl shadow-md shadow-gray-100 dark:shadow-none dark:bg-[#020817] dark:border-gray-800">
               <h2 className="text-xl font-medium pb-3 pl-3">Boards</h2>
               <Separator />
               <div className="py-3 space-y-1">
@@ -43,7 +45,7 @@ export default function Post() {
           </div>
           <div className="col-span-3" id="popular">
             <div className="py-3 space-y-4 mx-8">
-              <h2 className="text-2xl font-bold text-gray-400">Sports</h2>
+              <h2 className="text-2xl font-bold text-gray-100">Sports</h2>
               <Separator />
             </div>
             <div className="mx-6 p-2 space-y-5 ">
@@ -54,7 +56,7 @@ export default function Post() {
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="text-md pb-6 text-slate-500">
+                  <CardContent className="text-md pb-6 text-slate-400">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Aliquam ducimus praesentium iure. Dolor, dignissimos minus
                     ab, minima quasi repellat vel, illum quidem doloremque
@@ -73,9 +75,7 @@ export default function Post() {
                     </div>
                     <div className="flex items-center space-x-4">
                       <p className="text-sm text-slate-400">#323213</p>
-                      <Button className="bg-transparent border text-gray-800 hover:text-white">
-                        Reply
-                      </Button>
+                      <ReplyDialog />
                     </div>
                   </CardFooter>
                 </div>
@@ -83,8 +83,8 @@ export default function Post() {
             </div>
             {/* Replies */}
             <div className="mx-8 space-y-4">
-              <Reply/>
-              <Reply/>
+              <Reply />
+              <Reply />
             </div>
             {/* Replies End */}
           </div>

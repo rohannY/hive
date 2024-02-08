@@ -16,7 +16,10 @@ export default function PostCard() {
 
   return (
     <>
-      <Card className="rounded-lg shadow-md shadow-gray-100  p-2 border border-slate-100 dark:shadow-none dark:border-gray-800">
+      <Card
+        className="rounded-lg shadow-md shadow-gray-100 p-2 border 
+      border-slate-100 dark:shadow-none dark:border-gray-800 cursor-pointer dark:hover:bg-slate-900 dark:hover:border-slate-600"
+      >
         {loaded ? (
           <div className="space-y-3 rounded-sm px-10 py-8">
             <Skeleton className="w-full h-[20px] rounded-full" />
@@ -35,7 +38,7 @@ export default function PostCard() {
             </CardHeader>
             <CardContent className="text-md pb-6 text-zinc-700 dark:text-zinc-500 flex space-x-4">
               <img
-                src="https://source.unsplash.com/random/150x150"
+                src="https://source.unsplash.com/random/150x100"
                 className="rounded"
               />
               <p>
