@@ -1,13 +1,11 @@
-import Board from "./components/comp/boards";
-import Home from "./components/comp/home";
+import { Outlet } from "react-router-dom";
 import NavBar from "./components/comp/nav";
-import Post from "./components/comp/post";
 
 function App() {
   return (
-    <div className="bg-[#020817] font-Geist">
+    <div className="bg-white dark:bg-[#020817] font-Geist">
       <NavBar />
-      <Post />
+      <Outlet />
     </div>
   );
 }

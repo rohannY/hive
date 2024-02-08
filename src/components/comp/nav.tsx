@@ -1,44 +1,45 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
-
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setTheme] = useState<string>("light");
 
   useEffect(() => {
-    if (localStorage.getItem('theme') === null) {
-      localStorage.setItem('theme', 'light');
+    if (localStorage.getItem("theme") === null) {
+      localStorage.setItem("theme", "light");
     }
   }, []);
 
   useEffect(() => {
-    const html = document.querySelector('html');
-    if (localStorage.getItem('theme') === 'dark') {
-      html?.classList.add('dark');
-      setTheme('dark');
+    const html = document.querySelector("html");
+    if (localStorage.getItem("theme") === "dark") {
+      html?.classList.add("dark");
+      setTheme("dark");
     } else {
-      html?.classList.remove('dark');
-      setTheme('light');
+      html?.classList.remove("dark");
+      setTheme("light");
     }
   }, [theme]);
 
   const handleThemeSwitch = () => {
-    if (localStorage.getItem('theme') === 'light') {
-      setTheme('dark');
-      localStorage.setItem('theme', 'dark');
+    if (localStorage.getItem("theme") === "light") {
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      setTheme('light');
-      localStorage.setItem('theme', 'light');
+      setTheme("light");
+      localStorage.setItem("theme", "light");
     }
   };
 
   return (
     <div className="container mx-auto font-Geist sticky top-0 z-10 backdrop-blur-xl">
-      <nav className="flex py-2 place-content-between flex-wrap mx-auto border-b border-gray-900">
+      <nav className="flex py-2 place-content-between flex-wrap mx-auto border-b border-gray-100 dark:border-gray-900">
         <div className="flex justify-start space-x-3">
           <img src="" alt="logo" className="h-8 w-8 border" />
           <div className="">
-            <span className='text-xl font-medium'>Placa</span>
+            <Link to="/">
+              <span className="text-xl font-medium">Placa</span>
+            </Link>
           </div>
         </div>
         <div className="p-2 flex space-x-4">

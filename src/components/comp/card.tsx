@@ -1,7 +1,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -17,8 +16,8 @@ export default function PostCard() {
   return (
     <>
       <Card
-        className="rounded-lg shadow-md shadow-gray-100 p-2 border 
-      border-slate-100 dark:shadow-none dark:border-gray-800 cursor-pointer dark:hover:bg-slate-900 dark:hover:border-slate-600"
+        className="rounded-md shadow-sm shadow-gray-100 p-2 border 
+      border-slate-300 dark:shadow-none dark:border-gray-800 cursor-pointer hover:drop-shadow-xl dark:hover:bg-slate-900 dark:hover:border-slate-600"
       >
         {loaded ? (
           <div className="space-y-3 rounded-sm px-10 py-8">
@@ -32,16 +31,16 @@ export default function PostCard() {
         ) : (
           <div>
             <CardHeader>
-              <CardTitle className="tracking-wide text-lg">
+              <CardTitle className="tracking-wide text-md md:text-lg">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-md pb-6 text-zinc-700 dark:text-zinc-500 flex space-x-4">
+            <CardContent className="text-md pb-6 text-zinc-700 dark:text-zinc-500 flex flex-col md:flex-row md:space-x-4 space-y-2">
               <img
                 src="https://source.unsplash.com/random/150x100"
                 className="rounded"
               />
-              <p>
+              <p className="line-clamp-4">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Aliquam ducimus praesentium iure. Dolor, dignissimos minus ab,
                 minima quasi repellat vel, illum quidem doloremque magnam autem
@@ -56,7 +55,7 @@ export default function PostCard() {
                 <p className="text-blue-500 font-medium">Sports</p>
                 <p className="text-sm text-slate-400">12hr ago</p>
               </div>
-              <div className="flex space-x-2">
+              <div className="space-x-2 hidden md:flex">
                 <ToggleGroup type="single">
                   <ToggleGroupItem value="+1">
                     <svg

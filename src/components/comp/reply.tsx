@@ -2,9 +2,9 @@ import ReplyDialog from "./reply-dialog";
 
 export default function Reply() {
   return (
-    <div className="border py-6 px-8 space-y-3">
+    <div className="border rounded-sm py-6 px-8 space-y-3">
       <div>
-        <p className="text-sm text-slate-400">
+        <p className="text-sm text-slate-700 dark:text-slate-400">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
           esse soluta, architecto repudiandae repellendus minima voluptatibus
           sint odio recusandae ad blanditiis nesciunt ab impedit molestiae
@@ -12,7 +12,7 @@ export default function Reply() {
         </p>
       </div>
       <div className="flex place-content-between pt-2 text-slate-500">
-        <p className="text-md">
+        <p className="text-[10px] md:text-md">
           Replying to :{" "}
           <span className="text-sm text-emerald-500">#323213</span>
         </p>

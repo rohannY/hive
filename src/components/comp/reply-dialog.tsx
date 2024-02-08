@@ -14,7 +14,7 @@ export default function ReplyDialog() {
     <>
       <Dialog>
         <DialogTrigger asChild>
-          <Button className="bg-transparent border border-slate-100 text-white hover:text-white">
+          <Button className="bg-transparent border border-emerald-500 dark:border-slate-100 text-neutral-800 dark:text-white hover:text-white">
             Reply
           </Button>
         </DialogTrigger>
