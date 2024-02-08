@@ -11,7 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
 
 export default function PostCard() {
-  const [loaded, isLoaded] = useState(false);
+  const [loaded] = useState(false);
 
   return (
     <>
