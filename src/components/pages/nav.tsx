@@ -1,8 +1,16 @@
+import {
+  Cross1Icon,
+  HamburgerMenuIcon,
+  MoonIcon,
+  SunIcon,
+  VercelLogoIcon,
+} from "@radix-ui/react-icons";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [theme, setTheme] = useState<string>("light");
+  const [isOpen, setIsOpen] = useState<boolean>(true);
 
   useEffect(() => {
     if (localStorage.getItem("theme") === null) {
@@ -33,34 +41,33 @@ export default function NavBar() {
 
   return (
     <div className="container mx-auto font-Geist sticky top-0 z-10 backdrop-blur-xl">
-      <nav className="flex py-2 place-content-between flex-wrap mx-auto border-b border-gray-100 dark:border-gray-900">
-        <div className="flex justify-start space-x-3">
-          <img src="" alt="logo" className="h-8 w-8 border" />
+      <nav className="flex py-2 place-content-between flex-wrap mx-auto border-b border-gray-300 dark:border-gray-900">
+        <div className="flex items-center justify-start space-x-3">
+          <VercelLogoIcon className="h-6 w-6" />
           <div className="">
             <Link to="/">
               <span className="text-xl font-medium">Placa</span>
             </Link>
           </div>
         </div>
-        <div className="p-2 flex space-x-4">
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 cursor-pointer"
-              onClick={handleThemeSwitch}
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-              />
-            </svg>
+        <div className="p-2 flex items-center space-x-4">
+          <div onClick={handleThemeSwitch} className="cursor-pointer">
+            {theme === "light" ? (
+              <SunIcon className="w-5 h-5" />
+            ) : (
+              <MoonIcon className="w-5 h-5" />
+            )}
           </div>
-          <p>Menu</p>
+          <div className="cursor-pointer">
+            {isOpen ? (
+              <HamburgerMenuIcon
+                className="w-5 h-5"
+                onClick={() => setIsOpen(false)}
+              />
+            ) : (
+              <Cross1Icon className="w-5 h-5" onClick={() => setIsOpen(true)} />
+            )}
+          </div>
         </div>
       </nav>
     </div>

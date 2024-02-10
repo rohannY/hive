@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Separator } from "../ui/separator";
+import Create from "../post/create";
 
 export default function Board() {
   return (
     <div className="container mx-auto font-Geist">
       <div className="sm:mx-12 my-10 space-y-6">
-        <h1 className="font-semibold text-2xl pl-8">Sports</h1>
+        <div className="flex place-content-between">
+          <h1 className="font-semibold text-2xl pl-8">Sports</h1>
+          <Create className=""/>
+        </div>
         <Separator />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mx-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1 md:gap-6 mx-2">
           <Link to="/post">
-            <Card className="rounded-2xl h-fit border -space-y-1 md:-space-y-3  hover:drop-shadow-xl dark:hover:bg-slate-900 dark:hover:border-slate-700 cursor-pointer">
+            <Card
+              className="rounded-2xl h-fit border border-zinc-300 dark:border-slate-800 -space-y-1 md:-space-y-3 hover:drop-shadow-xl dark:hover:bg-slate-900
+             dark:hover:border-slate-700 cursor-pointer"
+            >
               <CardHeader className="p-3 md:p-6">
                 <img
                   loading="lazy"

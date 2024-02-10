@@ -8,7 +8,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import Reply from "./reply";
 import ReplyDialog from "./reply-dialog";
-import BoardList from "./board-list";
+import BoardList from "../others/board-list";
 
 export default function Post() {
   return (

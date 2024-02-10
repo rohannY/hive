@@ -14,7 +14,7 @@ export default function ReplyDialog() {
     <>
       <Dialog>
         <DialogTrigger asChild>
-          <Button className="bg-transparent border border-emerald-500 dark:border-slate-100 text-neutral-800 dark:text-white hover:text-white">
+          <Button className="bg-transparent border border-emerald-500 dark:border-slate-600 text-neutral-800 dark:text-slate-300 hover:text-white">
             Reply
           </Button>
         </DialogTrigger>
@@ -28,7 +28,7 @@ export default function ReplyDialog() {
             </div>
           </div>
           <DialogFooter>
-            <Button type="submit">Comment</Button>
+            <Button type="submit" className="text-white">Comment</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

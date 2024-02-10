@@ -9,6 +9,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
+import { ThickArrowDownIcon, ThickArrowUpIcon } from "@radix-ui/react-icons";
 
 export default function PostCard() {
   const [loaded] = useState(false);
@@ -35,12 +36,12 @@ export default function PostCard() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-md pb-6 text-zinc-700 dark:text-zinc-500 flex flex-col md:flex-row md:space-x-4 space-y-2">
+            <CardContent className="text-md pb-6 text-zinc-700 dark:text-zinc-500 flex flex-col md:flex-row md:space-x-4">
               <img
                 src="https://source.unsplash.com/random/150x100"
                 className="rounded"
               />
-              <p className="line-clamp-4">
+              <p className="line-clamp-4 py-1">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Aliquam ducimus praesentium iure. Dolor, dignissimos minus ab,
                 minima quasi repellat vel, illum quidem doloremque magnam autem
@@ -58,38 +59,12 @@ export default function PostCard() {
               <div className="space-x-2 hidden md:flex">
                 <ToggleGroup type="single">
                   <ToggleGroupItem value="+1">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="m4.5 15.75 7.5-7.5 7.5 7.5"
-                      />
-                    </svg>
+                    <ThickArrowUpIcon className="w-6 h-5"/>
                   </ToggleGroupItem>
                   <p>30</p>
                   <ToggleGroupItem value="b">
                     {" "}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                      />
-                    </svg>
+                    <ThickArrowDownIcon className="w-6 h-5" />
                   </ToggleGroupItem>
                 </ToggleGroup>
               </div>

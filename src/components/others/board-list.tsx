@@ -1,6 +1,6 @@
-import Arrow from "@/assets/icons/arrow";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router-dom";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 export default function BoardList() {
   return (
@@ -11,18 +11,18 @@ export default function BoardList() {
         <div className="py-3 space-y-1">
           <div className="text-md dark:text-slate-400 text-slate-600">
             <Link to="/board">
-              <div className="p-3 flex place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
+              <div className="p-3 flex items-center place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
                 <p>Sports</p>
-                <Arrow />
+                <ArrowRightIcon />
               </div>
             </Link>
-            <div className="p-3 flex place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
+            <div className="p-3 flex items-center place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
               <p>Sports</p>
-              <Arrow />
+              <ArrowRightIcon />
             </div>
-            <div className="p-3 flex place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
+            <div className="p-3 flex items-center place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
               <p>Sports</p>
-              <Arrow />
+              <ArrowRightIcon />
             </div>
           </div>
         </div>

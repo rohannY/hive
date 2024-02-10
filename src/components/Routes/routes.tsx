@@ -1,9 +1,9 @@
 import App from "@/App";
 import { createBrowserRouter } from "react-router-dom";
-import Landing from "../comp/landing";
-import Post from "../comp/post";
-import Home from "../comp/home";
-import Board from "../comp/boards";
+import Landing from "../pages/landing";
+import Post from "../post/post";
+import Home from "../pages/home";
+import Board from "../pages/boards";
 
 export const router = createBrowserRouter([
   {
