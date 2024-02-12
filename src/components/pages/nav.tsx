@@ -46,7 +46,7 @@ export default function NavBar() {
           <VercelLogoIcon className="h-6 w-6" />
           <div className="">
             <Link to="/">
-              <span className="text-xl font-medium">Placa</span>
+              <span className="text-xl font-bold">Hive</span>
             </Link>
           </div>
         </div>

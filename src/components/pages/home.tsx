@@ -1,15 +1,14 @@
 import { Separator } from "@/components/ui/separator";
-import PostCard from "../others/card";
 import BoardList from "../others/board-list";
-import { Link } from "react-router-dom";
 import Create from "../post/create";
+import CardList from "../others/card";
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="container mx-auto font-Geist h-screen">
       <div className="md:p-2 w-full max-h-screen">
         <div className="flex flex-col lg:grid lg:grid-cols-5">
-          <div className="col-span-1 order-last lg:-order-1 lg:p-2 md:mx-6 md:px-2 lg:mx-0">
+          <div className="col-span-1 order-last lg:-order-1  md:mx-6 md:px-2 lg:mx-0">
             <BoardList />
           </div>
           <div className="col-span-3" id="popular">
@@ -23,12 +22,7 @@ export default function Home() {
               <Separator />
             </div>
             <div className="md:mx-6 md:p-2 flex flex-col gap-4">
-              <Link to="/post" className="md:my-2">
-                <PostCard />
-              </Link>
-              <Link to="/post">
-                <PostCard />
-              </Link>
+              <CardList />
             </div>
           </div>
           <div className="col-span-1 hidden lg:block">
@@ -41,4 +35,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;

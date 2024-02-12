@@ -1,5 +1,6 @@
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -26,42 +27,42 @@ import {
 } from "@/components/ui/command";
 import { CaretSortIcon, CheckIcon, PlusIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
-
-const topics = [
-  {
-    value: "sports",
-    label: "Sports",
-  },
-  {
-    value: "politics",
-    label: "Politics",
-  },
-  {
-    value: "technology",
-    label: "Technology",
-  },
-  {
-    value: "entertainment",
-    label: "Entertainment",
-  },
-  {
-    value: "science",
-    label: "Science",
-  },
-];
-
-function addPost(title: string, description: string) {
-  // let db = fb.firestore();
-  // const Blogs = db.collection("blogs");
-  console.log("Title :" + title);
-  console.log("Description :" + description);
-}
+import { topics } from "../utils/topics";
+import { useToast } from "@/components/ui/use-toast";
 
 const Create: React.FC<{ className: string }> = ({ className }) => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [open, setOpen] = useState<boolean>(false);
-  const [value, setValue] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
+  const { toast } = useToast();
+
+  async function addPost(title: string, description: string, category: string) {
+    try {
+      const response = await fetch("http://localhost:7000/api/v1/post/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: title,
+          description: description,
+          category: category,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add post");
+      }
+
+      const data = await response.json();
+      console.log("Data Successfully Submitted:", data);
+      return data;
+    } catch (error: any) {
+      console.error("Error adding document:", error.message);
+      throw error;
+    }
+  }
 
   return (
     <>
@@ -115,8 +116,8 @@ const Create: React.FC<{ className: string }> = ({ className }) => {
                     aria-expanded={open}
                     className="w-full justify-between rounded"
                   >
-                    {value
-                      ? topics.find((topic) => topic.value === value)?.label
+                    {category
+                      ? topics.find((topic) => topic.value === category)?.label
                       : "Select topic..."}
                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
@@ -134,8 +135,8 @@ const Create: React.FC<{ className: string }> = ({ className }) => {
                           key={topic.value}
                           value={topic.value}
                           onSelect={(currentValue) => {
-                            setValue(
-                              currentValue === value ? "" : currentValue
+                            setCategory(
+                              currentValue === category ? "" : currentValue
                             );
                             setOpen(false);
                           }}
@@ -145,7 +146,7 @@ const Create: React.FC<{ className: string }> = ({ className }) => {
                           <CheckIcon
                             className={cn(
                               "ml-auto h-4 w-4",
-                              value === topic.value
+                              category === topic.value
                                 ? "opacity-100"
                                 : "opacity-0"
                             )}
@@ -160,14 +161,24 @@ const Create: React.FC<{ className: string }> = ({ className }) => {
             </div>
           </div>
           <DialogFooter>
-            <Button
-              type="submit"
-              className="hover:text-white"
-              onClick={() => addPost(title, description)}
-            >
-              Create
-            </Button>
-            <p></p>
+            <DialogClose asChild>
+              <Button
+                type="submit"
+                className="hover:text-white"
+                onClick={() => {
+                  if (!title || !description || !category) {
+                    toast({
+                      variant: "destructive",
+                      title: "Error",
+                      description: "Missing Values",
+                    });
+                  }
+                  addPost(title, description, category);
+                }}
+              >
+                Create
+              </Button>
+            </DialogClose>{" "}
           </DialogFooter>
         </DialogContent>
       </Dialog>
