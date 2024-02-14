@@ -10,7 +10,7 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useEffect, useState } from "react";
 import { ThickArrowDownIcon, ThickArrowUpIcon } from "@radix-ui/react-icons";
-import { Post } from "./type";
+import { Post } from "../utils/type";
 import { formatDistanceToNow } from "date-fns";
 import { Link } from "react-router-dom";
 

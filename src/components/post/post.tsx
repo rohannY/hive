@@ -11,8 +11,9 @@ import ReplyDialog from "./reply-dialog";
 import BoardList from "../others/board-list";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Post } from "../others/type";
+import { Post } from "../utils/type";
 import { formatDistanceToNow } from "date-fns";
+import { ChatBubbleIcon } from "@radix-ui/react-icons";
 
 export default function _Post() {
   const { id } = useParams<{ id: string }>();
@@ -40,14 +41,16 @@ export default function _Post() {
             <BoardList />
           </div>
           <div className="col-span-3">
-            <div className="py-3 space-y-4 md:mx-10">
-              <h2 className="text-2xl font-bold dark:text-gray-100">
-                {post?.category}
+            <div className="py-3 md:mx-10">
+              <h2 className="text-2xl font-bold dark:text-gray-100 h-12">
+                {/* {post!.category.charAt(0).toUpperCase() +
+                  post!.category.slice(1).toLowerCase()} */}
+                Sports
               </h2>
               <Separator />
             </div>
             <div className="md:mx-6 md:p-2 space-y-5 mb-2">
-              <Card className="shadow-none border border-cyan-400 dark:border-cyan-800 p-2">
+              <Card className="shadow-none border border-cyan-400 dark:border-neutral-500 p-2">
                 <div>
                   <CardHeader>
                     <CardTitle className="tracking-wide text-md md:text-lg">
@@ -79,10 +82,22 @@ export default function _Post() {
               </Card>
             </div>
             {/* Replies */}
-            <div className="py-2 md:mx-8 space-y-4">
-              {post?.replies.map((reply, index) => (
-                <_Reply key={index} data={reply} />
-              ))}
+            <div className="md:mx-8 space-y-4 pt-2 pb-10">
+              {post?.replies.length === 0 ? (
+                <div className="text-center space-y-2 py-10 flex flex-col items-center">
+                  <ChatBubbleIcon className="w-5 h-5" />
+                  <p className="font-semibold text-neutral-800 dark:text-slate-400">
+                    No Comments Yet
+                  </p>
+                  <p className="text-sm text-neutral-800 dark:text-slate-500">
+                    Be the first to share what you think!
+                  </p>
+                </div>
+              ) : (
+                post?.replies.map((reply, index) => (
+                  <_Reply key={index} data={reply} />
+                ))
+              )}
             </div>
             {/* Replies End */}
           </div>

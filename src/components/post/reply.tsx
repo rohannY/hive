@@ -1,5 +1,5 @@
 // import ReplyDialog from "./reply-dialog";
-import { Reply } from "../others/type";
+import { Reply } from "../utils/type";
 import { formatDistanceToNow } from "date-fns";
 
 interface ReplyProps {
@@ -8,7 +8,7 @@ interface ReplyProps {
 
 const _Reply: React.FC<ReplyProps> = ({ data }) => {
   return (
-    <div className="border rounded-sm py-6 px-8 space-y-3">
+    <div className="border border-neutral-400 dark:border-neutral-700 rounded-sm py-6 px-8 space-y-3 dark:hover:border-neutral-300 hover:dark:bg-neutral-900 cursor-pointer hover:shadow-md">
       <div>
         <p className="text-sm text-slate-800 dark:text-slate-400">
           {data.reply_text}

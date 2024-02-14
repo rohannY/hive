@@ -20,6 +20,7 @@ module.exports = {
       fontFamily: {
         Inter: ["Inter", "sans-serif"],
         Geist: ["Geist", "sans-serif"],
+        Nunito: ["Nunito", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

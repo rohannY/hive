@@ -1,6 +1,7 @@
 import { Separator } from "../ui/separator";
 import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { topics } from "../utils/topics";
 
 export default function BoardList() {
   return (
@@ -10,20 +11,14 @@ export default function BoardList() {
         <Separator />
         <div className="py-3 space-y-1">
           <div className="text-md dark:text-slate-400 text-slate-600">
-            <Link to="/board">
-              <div className="p-3 flex items-center place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
-                <p>Sports</p>
-                <ArrowRightIcon />
-              </div>
-            </Link>
-            <div className="p-3 flex items-center place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
-              <p>Sports</p>
-              <ArrowRightIcon />
-            </div>
-            <div className="p-3 flex items-center place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
-              <p>Sports</p>
-              <ArrowRightIcon />
-            </div>
+            {topics.map((topic) => (
+              <Link to={`/board/${topic.value}`}>
+                <div className="p-3 flex items-center place-content-between hover:bg-blue-400 hover:shadow-md dark:hover:bg-blue-600 hover:text-white rounded-sm cursor-pointer">
+                  <p>{topic.label}</p>
+                  <ArrowRightIcon />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
