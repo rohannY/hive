@@ -2,7 +2,6 @@ import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import {
-  AvatarIcon,
   CaretSortIcon,
   ChatBubbleIcon,
   EyeNoneIcon,

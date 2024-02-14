@@ -9,7 +9,6 @@ import { Component1Icon } from "@radix-ui/react-icons";
 export default function Board() {
   const { category } = useParams<{ category: string }>();
   const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
 
   const loadPost = () => {
     fetch(`http://localhost:7000/api/v1/post/`)
@@ -19,7 +18,6 @@ export default function Board() {
         if (data.success && Array.isArray(data.data)) {
           const formattedPosts: Post[] = data.data;
           setPosts(formattedPosts.filter((post) => post.category === category));
-          setLoading(false);
         } else {
           console.error("Error: Data received is not in the expected format");
         }
