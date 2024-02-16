@@ -43,23 +43,6 @@ exports.getSpecificPost = asyncHandler(async (req, res, next) => {
   }
 });
 
-// // @desc   Get post by category
-// // @route  GET api/v1/post/category
-// // @access Public
-// exports.getUser = asyncHandler(async (req, res, next) => {
-//   const userId = req.params.id;
-//   if (userId) {
-//     if (!mongoose.isValidObjectId(userId)) {
-//       return next(new ErrorResponse(`Invalide id`, 400));
-//     }
-//   }
-//   const user = await User.findById(userId);
-//   if (!user) {
-//     return next(new ErrorResponse(`No user found with id ${userId}`, 404));
-//   }
-//   res.status(200).json({ success: true, data: user });
-// });
-
 // @desc   Reply to Post
 // @route  POST api/v1/post/:id/reply/
 // @access Public

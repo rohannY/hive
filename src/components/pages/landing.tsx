@@ -7,24 +7,30 @@ import {
   EyeNoneIcon,
   MixIcon,
 } from "@radix-ui/react-icons";
+import Icon from "@/assets/icon";
 
 export default function Landing() {
   return (
     <div className="container mx-auto font-Geist h-screen">
       <div className="py-10 space-y-6 mb-20">
-        <div className="rounded-[40px] bg-[#FFF1EE] h-[80vh] p-10 flex flex-col items-center">
-          <p className="pt-32 pb-4 text-[70px] font-Nunito font-semibold text-center tracking-widest text-[#723838]">
-            HIVE
-          </p>
-          <p className="lg:px-32 text-xl tracking-wider text-center text-[#6e3434cc]">
-            A buzzing community platform where every voice matters.
-            <br /> Join us and become part of the hive mind.
-          </p>
-          <Link to={"/home"}>
-            <Button className="my-10 rounded-full w-[140px] h-[50px] text-md bg-[#6a3e3e1f] text-[#723838] tracking-widest hover:bg-[#3d2121] hover:text-[#f49072]">
-              Visit Site
-            </Button>
-          </Link>
+        <div className="rounded-[40px] bg-[#FFF1EE] h-[80vh] p-10 ">
+          <div className="flex flex-col items-center pt-24">
+            <div className="w-10 h-10">
+              <Icon fill="#723838" />
+            </div>
+            <p className=" pb-4 text-[70px] font-Nunito font-semibold text-center tracking-widest text-[#723838]">
+              HIVE
+            </p>
+            <p className="lg:px-32 text-xl tracking-wider text-center text-[#6e3434cc]">
+              A buzzing community platform where every voice matters.
+              <br /> Join us and become part of the hive mind.
+            </p>
+            <Link to={"/home"}>
+              <Button className="my-10 rounded-full w-[140px] h-[50px] text-md bg-[#6a3e3e1f] text-[#723838] tracking-widest hover:bg-[#3d2121] hover:text-[#f49072]">
+                Visit Site
+              </Button>
+            </Link>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 py-10 lg:px-32 gap-10">
